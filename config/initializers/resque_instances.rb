@@ -1,3 +1,4 @@
+require 'pathname'
 if Rails.env.test?
   RESQUES = Resques.new([
     ResqueInstance.new(
@@ -7,5 +8,10 @@ if Rails.env.test?
     )
   ])
 else
-  RESQUES = Resques.from_environment
+  if ENV['CONFIG_FILE']
+    configfile = Pathname.new(ENV['CONFIG_FILE']).absolute? ? ENV['CONFIG_FILE'] : Pathname.new(Rails.root).join(ENV['CONFIG_FILE']).to_s
+    RESQUES = Resques.from_config(configfile)
+  else
+    RESQUES = Resques.from_environment
+  end
 end

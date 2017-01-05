@@ -1,0 +1,12 @@
+---
+-
+  name: www
+  sentinels:
+  - sentinel://sentinel1:26379
+  - sentinel://sentinel2:26379
+  namespace: www
+  url: redis://redis-cluster
+-
+  name: admin
+  namespace: admin
+  url: redis://localhost:6379
