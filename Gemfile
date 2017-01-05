@@ -18,12 +18,12 @@ gem "aws-healthcheck"
 gem 'resqutils'
 gem 'resque-retry'
 gem 'resque-scheduler'
+gem "dotenv-rails"
 
 group :test, :development do
   gem "capybara"
   gem "selenium-webdriver"
   gem "teaspoon-jasmine"
-  gem "dotenv-rails"
   gem "poltergeist"
 end
 
